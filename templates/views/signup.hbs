@@ -1,0 +1,59 @@
+{{>header}}
+
+<body>
+{{>LoginSignupNavbar}}
+    <!-- ------------------------page-content---------------------------- -->
+
+    <section>
+        <div class="row justify-content-center align-items-center">
+            <div class="col-12 col-md-12 col-lg-7 col-xl-7 col-xxl-7 img-col p-0">
+                <img src="/Assets/Images/female-teacher-showing-okay-gesture-explaining-ma-2022-12-16-08-30-20-utc (Custom).jpg"
+                    alt="" class="w-100" />
+            </div>
+            <div
+                class="col-12 col-md-12 col-lg-5 col-xl-5 col-xxl-5 px-3 px-md-5 px-lg-5 px-xl-5 px-xxl-5 h-100 form-col signup-col">
+                <h5 class="text-center mb-4 text-black">Create your Hostaclass.com Account</h5>
+                <form id="signup-form" action="/signup" method="post" class="row">
+                    <div class="mb-4 col-12 col-md-6">
+                        <input type="text" class="form-control form-control-md" name="fullName" placeholder="Full Name"
+                            required />
+                    </div>
+                    <div class="mb-4 col-12 col-md-6">
+                        <input type="email" class="form-control form-control-md" name="email" placeholder="Email"
+                            required />
+                    </div>
+                    <div class="mb-4 col-12 col-md-6">
+                        <input type="tel" class="form-control form-control-md" name="phone"
+                            placeholder="Phone" />
+                    </div>
+                    <div class="mb-4 col-12 col-md-6">
+                        <input type="text" class="form-control form-control-md" name="city"
+                            placeholder="City" />
+                    </div>
+                    <div class="mb-4 col-12 col-md-6">
+                        <input type="text" class="form-control form-control-md" name="address"
+                            placeholder="Address" />
+                    </div>
+                    <div class="mb-4 col-12 col-md-6">
+                        <input type="date" class="form-control form-control-md" name="dob"
+                            placeholder="DOB" />
+                    </div>
+                    <div class="mb-4 col-12 col-md-6">
+                        <input type="password" class="form-control form-control-md" name="password"
+                            placeholder="Password" required />
+                    </div>
+                    <div class="mb-4 col-12 col-md-6">
+                        <input type="password" class="form-control form-control-md" name="confirmPassword"
+                            placeholder="Confirm Password" required />
+                    </div>
+                    <div class="text-center col-12">
+                        <button type="submit" class="btn btn-primary">Create Account</button>
+                    </div>
+                </form>
+                <p class="text-center mt-3">Have an account? <a href="/Login" class="text-primary"><b>Sign In
+                            Here</b> </a></p>
+            </div>
+        </div>
+    </section>
+
+    {{>footer}}
