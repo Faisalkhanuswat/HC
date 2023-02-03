@@ -6,7 +6,7 @@ module.exports= {
         });
     },
     signup: (req, res)=>{
-        res.render('Signup',{
+        res.render('signup',{
             title: 'Signup'
         });
     },
