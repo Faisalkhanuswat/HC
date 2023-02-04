@@ -1,4 +1,4 @@
-const express = require('express');
+const {validationResult} = require('express-validator');
 module.exports= {
     login: (req, res)=>{
         res.render('Login',{
@@ -15,7 +15,21 @@ module.exports= {
             title: 'Blog'
         });
     },
-    doSignup: (req, res)=>{
-        res.send(req.body);
+    doSignup: async (req, res)=>{
+        try {
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                olddata = req.body;
+                delete olddata.password;
+                delete olddata.confirmPassword;
+                res.locals.oldData = olddata;
+                return res.status(400).redirect('/signup');
+            }
+            res.send(req.body);
+        } catch (error) {
+            res.status(404).send({
+                error: error.message
+              });
+        }
     }
 }

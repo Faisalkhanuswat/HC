@@ -15,8 +15,8 @@
                 <h5 class="text-center mb-4 text-black">Create your Hostaclass.com Account</h5>
                 <form id="signup-form" action="/signup" method="post" class="row">
                     <div class="mb-4 col-12 col-md-6">
-                        <input type="text" class="form-control form-control-md" name="fullName" placeholder="Full Name"
-                            required />
+                        <input type="text" class="form-control form-control-md" name="fullName" placeholder="Full Name" required
+                        value="{{#if (oldData)}}{{oldData.fullName}}{{/if}}"/>
                     </div>
                     <div class="mb-4 col-12 col-md-6">
                         <input type="email" class="form-control form-control-md" name="email" placeholder="Email"
