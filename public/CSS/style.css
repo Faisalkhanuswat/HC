@@ -470,3 +470,23 @@ body {
 .articles .single-item .meta .author_content h6 {
     margin-bottom: 0 !important;
 }
+
+/* --------------------login-alert-------------------------- */
+.login-alert{
+    width: 350px !important;
+}
+@media(max-width: 767px){
+    .login-alert{
+        width: 100% !important;
+    }
+}
+
+/* -------------forgot-page----------------------------------- */
+.forgot-main{
+    display: grid;
+    place-items: center;
+    grid-template-rows: 80vh;
+}
+.forgot-card{
+    width: 370px;
+}

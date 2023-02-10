@@ -4,7 +4,7 @@
   <!-- ---------------------navbar--------------------------- -->
 {{>LoginSignupNavbar}}
   <!-- ------------------------page-content---------------------------- -->
-
+{{>alert}}
   <section>
     <div class="row justify-content-center align-items-center">
       <div class="col-12 col-md-12 col-lg-7 col-xl-7 col-xxl-7 img-col p-0">
@@ -12,8 +12,13 @@
       </div>
       <div
         class="col-12 col-md-12 col-lg-5 col-xl-5 col-xxl-5 px-3 px-md-5 px-lg-5 px-xl-5 px-xxl-5 h-100 form-col login-col">
+        {{#if error}}
+        <div class="alert bg-danger text-white text-center py-2 login-alert" role="alert">{{error}}</div>
+        {{/if}}
+
+
         <h5 class="text-center mb-5 text-black">Login</h5>
-        <form id="login-form" action="" method="post">
+        <form id="login-form" action="/login" method="post">
           <div class="mb-4">
             <input type="email" class="form-control form-control-md" name="emailAddress" placeholder="Email Address"
               required />
@@ -23,10 +28,10 @@
               required />
           </div>
           <div class="mb-4 form-check">
-            <input type="checkbox" class="form-check-input" id="remember" />
+            <input type="checkbox" class="form-check-input" id="remember" name="remember"/>
             <label class="form-check-label" for="remember">Remember Me</label>
           </div>
-          <div class="my-4 text-center"><a href="#">Forgot Email Address/ Password? </a></div>
+          <div class="my-4 text-center text-black">Don't remember password? <a href="/forgot-password" class="text-primary">Forgot Here </a></div>
           <div class="text-center">
             <button type="submit" class="btn btn-primary">Submit</button>
           </div>

@@ -41,10 +41,11 @@ const bcrypt = require('bcrypt');
     },
     role: {
         type: String,
-        default: "student"
+        default: "student",
+        lowercase: true
     },
     verified: {
-        typeof: Boolean,
+        type: Boolean,
         default: false
     },
     avatar:{
@@ -55,9 +56,10 @@ const bcrypt = require('bcrypt');
  })
 
 userSchema.pre('save', async function(next){
-    if(this.isModefied('password')){
-        bcrypt.hash(this.password, 8);
+    if(this.isModified('password')){
+       this.password = await bcrypt.hash(this.password, 8);
     }
+    next();
 })
  const User = mongoose.model('User', userSchema);
  module.exports = User;

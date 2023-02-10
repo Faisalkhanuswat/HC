@@ -16,35 +16,59 @@
                 <form id="signup-form" action="/signup" method="post" class="row">
                     <div class="mb-4 col-12 col-md-6">
                         <input type="text" class="form-control form-control-md" name="fullName" placeholder="Full Name" required
-                        value="{{#if (oldData)}}{{oldData.fullName}}{{/if}}"/>
+                        value="{{#if oldData}}{{oldData.fullName}}{{/if}}"/>
+                        {{#if errorsObj}}
+                        <div  class="form-text text-danger">{{errorsObj.fullName}}</div>
+                        {{/if}}
                     </div>
                     <div class="mb-4 col-12 col-md-6">
                         <input type="email" class="form-control form-control-md" name="email" placeholder="Email"
-                            required />
+                            required value="{{#if oldData}}{{oldData.email}}{{/if}}"/>
+                        {{#if errorsObj}}
+                        <div  class="form-text text-danger">{{errorsObj.email}}</div>
+                        {{/if}}
                     </div>
                     <div class="mb-4 col-12 col-md-6">
                         <input type="tel" class="form-control form-control-md" name="phone"
-                            placeholder="Phone" />
+                            placeholder="Phone" value="{{#if oldData}}{{oldData.phone}}{{/if}}"/>
+                        {{#if errorsObj}}
+                        <div  class="form-text text-danger">{{errorsObj.phone}}</div>
+                        {{/if}}
                     </div>
                     <div class="mb-4 col-12 col-md-6">
                         <input type="text" class="form-control form-control-md" name="city"
-                            placeholder="City" />
+                            placeholder="City" value="{{#if oldData}}{{oldData.city}}{{/if}}"/>
+                        {{#if errorsObj}}
+                        <div  class="form-text text-danger">{{errorsObj.city}}</div>
+                        {{/if}}
                     </div>
                     <div class="mb-4 col-12 col-md-6">
                         <input type="text" class="form-control form-control-md" name="address"
-                            placeholder="Address" />
+                            placeholder="Address" value="{{#if oldData}}{{oldData.address}}{{/if}}"/>
+                        {{#if errorsObj}}
+                        <div  class="form-text text-danger">{{errorsObj.address}}</div>
+                        {{/if}}
                     </div>
                     <div class="mb-4 col-12 col-md-6">
                         <input type="date" class="form-control form-control-md" name="dob"
-                            placeholder="DOB" />
+                            placeholder="DOB" value="{{#if oldData}}{{oldData.dob}}{{/if}}"/>
+                        {{#if errorsObj}}
+                        <div  class="form-text text-danger">{{errorsObj.dob}}</div>
+                        {{/if}}
                     </div>
                     <div class="mb-4 col-12 col-md-6">
                         <input type="password" class="form-control form-control-md" name="password"
                             placeholder="Password" required />
+                        {{#if errorsObj}}
+                        <div  class="form-text text-danger">{{errorsObj.password}}</div>
+                        {{/if}}
                     </div>
                     <div class="mb-4 col-12 col-md-6">
                         <input type="password" class="form-control form-control-md" name="confirmPassword"
                             placeholder="Confirm Password" required />
+                        {{#if errorsObj}}
+                        <div  class="form-text text-danger">{{errorsObj.confirmPassword}}</div>
+                        {{/if}}
                     </div>
                     <div class="text-center col-12">
                         <button type="submit" class="btn btn-primary">Create Account</button>

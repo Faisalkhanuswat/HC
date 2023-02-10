@@ -1,4 +1,6 @@
+const express = require('express');
 const {validationResult} = require('express-validator');
+const User = require('../models/user');
 module.exports= {
     login: (req, res)=>{
         res.render('Login',{
@@ -23,13 +25,49 @@ module.exports= {
                 delete olddata.password;
                 delete olddata.confirmPassword;
                 res.locals.oldData = olddata;
-                return res.status(400).redirect('/signup');
+                const errorsObj = {};
+                errors.errors.forEach(e => {
+                    errorsObj[e.param] = e.msg;
+                });
+                return res.status(400).render('signup',{
+                    title: 'Signup',
+                    errorsObj
+                });
             }
-            res.send(req.body);
+            const newUser = new User({
+                name: req.body.fullName,
+                email: req.body.email,
+                phone: req.body.phone,
+                city: req.body.city,
+                address: req.body.address,
+                dob: req.body.dob,
+                password: req.body.password
+            })
+            await newUser.save();
+            req.flash('alert', {message: 'Account create Successfully',type: 'success' });
+            return res.status(201).redirect('/login');
         } catch (error) {
-            res.status(404).send({
+            res.status(500).send({
                 error: error.message
               });
         }
+    },
+    doLogin: async (req, res)=>{
+        req.body.remember ? req.session.cookie.originalMaxAge = 1000 * 60 * 60 * 5 : req.session.cookie.expires= false;
+        return res.status(200).redirect('/dashboard');
+    },
+    logout: async (req, res, next)=>{
+        req.logout(err=>{
+            if(err){
+                return next(err);
+            }
+            res.redirect('/login');
+        })
+    },
+    forgot: async (req, res)=>{
+        res.render('reset-password',{
+            title: 'Forgot Password',
+            reset: false
+        })
     }
 }

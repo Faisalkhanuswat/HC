@@ -27,7 +27,7 @@ const User = require('../models/user');
         fullName: {
             trim: true,
             escape: true,
-            errorMessage: 'Field is empty or invalid',
+            errorMessage: 'Invalid field or empty',
             notEmpty: true
         },
         email: {
@@ -47,22 +47,22 @@ const User = require('../models/user');
             isMobilePhone: true,
             trim: true,
             notEmpty: true,
-            errorMessage: 'Field is empty or invalid'
+            errorMessage: 'Invalid field or empty'
         },
         city: {
             notEmpty: true,
             trim: true,
-            errorMessage: 'Field is empty or invalid'
+            errorMessage: 'Invalid field or empty'
         },
         dob: {
             notEmpty: true,
             trim: true,
-            errorMessage: 'Field is empty or invalid'
+            errorMessage: 'Invalid field or empty'
         },
         address: {
             notEmpty: true,
             trim: true,
-            errorMessage: 'Field is empty or invalid'
+            errorMessage: 'Invalid field or empty'
         },
         password: {
             isLength: {
