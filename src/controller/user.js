@@ -63,11 +63,5 @@ module.exports= {
             }
             res.redirect('/login');
         })
-    },
-    forgot: async (req, res)=>{
-        res.render('reset-password',{
-            title: 'Forgot Password',
-            reset: false
-        })
     }
 }

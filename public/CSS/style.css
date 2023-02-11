@@ -483,10 +483,17 @@ body {
 
 /* -------------forgot-page----------------------------------- */
 .forgot-main{
-    display: grid;
-    place-items: center;
-    grid-template-rows: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
 }
 .forgot-card{
     width: 370px;
+}
+@media(max-width: 767px){
+    .forgot-card{
+        width: 100%;
+    }
 }
