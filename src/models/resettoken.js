@@ -18,5 +18,5 @@ const Token = new mongoose.Schema({
     timestamps: true
 })
 
-const restToken = mongoose.model('resetToken', Token);
-module.exports = restToken;
+const resetToken = mongoose.model('resetToken', Token);
+module.exports = resetToken;

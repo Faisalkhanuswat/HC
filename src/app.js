@@ -44,8 +44,9 @@ let title, logo;
 app.use(async (req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.alert = req.flash("alert");
-    res.locals.error = req.flash("error");
-    res.locals.user = req.user;
+  res.locals.error = req.flash("error");
+  res.locals.expired = req.flash('expired');
+  res.locals.user = req.user;
   
     // site title and logo
     // const setting = await Setting.findOne();

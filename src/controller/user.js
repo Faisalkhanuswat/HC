@@ -1,6 +1,10 @@
 const express = require('express');
+const crypto = require('crypto');
 const {validationResult} = require('express-validator');
 const User = require('../models/user');
+const verifyToken = require('../models/verification');
+const {sendVerificationEmail} = require('../controller/mailservice');
+
 module.exports= {
     login: (req, res)=>{
         res.render('Login',{
@@ -44,6 +48,11 @@ module.exports= {
                 password: req.body.password
             })
             await newUser.save();
+
+            var token = await crypto.randomBytes(32).toString('hex');
+            await verifyToken({token, userId: newUser._id}).save();
+            await sendVerificationEmail(newUser.email, token);
+            
             req.flash('alert', {message: 'Account create Successfully',type: 'success' });
             return res.status(201).redirect('/login');
         } catch (error) {
